@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5" style="max-width:400px;">
+    <!-- User icon at top -->
+    <div class="text-center mb-4">
+        <i class="bi bi-person-circle" style="font-size:60px; color:#0d6efd;"></i>
+    </div>
+
+    <h3 class="text-center mb-4">Create Account</h3>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="card text-center mb-3 shadow-sm @(ViewBag.IsSuccess ? "border-success" : "border-danger")">
+            <div class="card-body">
+                <i class="bi @(ViewBag.IsSuccess ? "bi-check-circle-fill text-success" : "bi-x-circle-fill text-danger")" style="font-size:40px;"></i>
+                <h5 class="card-title mt-2">
+                    @(ViewBag.IsSuccess ? "Welcome to shoppingkart!" : "Oops!")
+                </h5>
+                <p class="card-text">
+                    @ViewBag.Message
+                </p>
+            </div>
+        </div>
+    }
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Username</label>
+            <input class="form-control" name="Username" placeholder="Enter username" required />
+        </div>
+        
+        <div class="mb-3">
+            <label>Password</label>
+            <input class="form-control" name="Password" type="password" placeholder="Enter password" required />
+        </div>
+
+        <button class="btn btn-success w-100 d-flex align-items-center justify-content-center">
+            <i class="bi bi-pencil-fill me-2"></i> Register
+        </button>
+    </form>
+</div>

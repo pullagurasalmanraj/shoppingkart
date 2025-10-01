@@ -1,0 +1,38 @@
+﻿@model List<WebApplication1.Models.Product>
+
+<!-- Category Icons -->
+<div class="container mt-4">
+    <div class="d-flex justify-content-start mb-3">
+        <a href="/Home/Category?category=Laptop" class="me-3 text-center">
+            <img src="/images/laptop.jpg" style="width:60px; height:60px;" class="mb-1" />
+            <div>Laptop</div>
+        </a>
+        <a href="/Home/Category?category=Phone" class="me-3 text-center">
+            <img src="/images/phone.png" style="width:60px; height:60px;" class="mb-1" />
+            <div>Phone</div>
+        </a>
+        <a href="/Home/Category?category=Shoes" class="me-3 text-center">
+            <img src="/images/shoes.jpg" style="width:60px; height:60px;" class="mb-1" />
+            <div>Shoes</div>
+        </a>
+    </div>
+</div>
+
+<!-- Product Grid -->
+<div class="container mt-2">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height:200px; object-fit:contain;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-success">₹@product.Price</p>
+                        <a href="#" class="btn btn-warning w-100">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
